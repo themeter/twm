@@ -3,32 +3,38 @@
 </p>
 <!-- <p> {{bla}}</p> -->
 <div class="container color-dark">
-	<div class="col">
-		<p>Tasks</p>
+	<div class="col" routerLink ="">
+		<p>Task</p>
 	</div>
 	<div class="col">
 		<p>Business Data</p>
 	</div>
 </div>
 
-<div class="container color-light" [@tasksx]="tasks.length">
-   <!-- [@tasks]="tasks.length"> -->
+<div class="container color-light" [@fieldsx]="fields.length">
   <div class="col">
-    <p class="life-container" *ngFor="let task of tasks; let i = index" (click)="enable()">
-      <span class="t-name">{{task}} </span><span class="t-edit" routerLink="taskEdit"> Edit</span><span class="t-delete" (click)="removeItem(i)"> Delete</span>
+    <p class="life-container" *ngFor="let field of fields; let i = index" >
+      <span class="t-name">{{field}} </span><span class="t-delete" (click)="removeField(i)">   X</span>
     </p>
   </div>
 
   <div class="col">
 		<form>
-      <!-- <input type="text" class="txt" name="item" placeholder="New Task..." [(ngModel)]="taskName"> -->
+      <!-- <input type="Select" class="txt" name="type" placeholder="Select BD type..." [(ngModel)]="fieldType"> -->
+      <select name="type" [(ngModel)]="fieldType">
+       <option value="String">str</option>
+       <option value="Integer">int</option>
+       <option value="Document">doc</option>
+       <option value="boolean">bln</option>
+      </select>
+      <input type="text" class="txt" name="item" placeholder="New BD field..." [(ngModel)]="fieldName">
 
     <!-- <input type="text" class="txt" name="item" placeholder="Life goal..." [(ngModel)]="goalText"> -->
 		<!-- property 2-way binding. Requires FormBinding import -->
 		<!-- <br> <span> {{goalText}}</span> -->
 
 		<!-- property bingding -->
-		<!-- <input type="submit" class="btn" [value]="bla" (click)="addTask()"> -->
+		<input type="submit" class="btn" value="Add field" (click)="addField()">
 
     <!-- <input type="submit" class="btn" [value]="btnText" (click)="addItem()"> -->
 
