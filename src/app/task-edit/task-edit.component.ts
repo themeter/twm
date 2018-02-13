@@ -33,7 +33,7 @@ export class TaskEditComponent implements OnInit {
   fieldType = '';
   inputvar = false;
   outputvar = false;
-  arraytvar = false;
+  arrayvar = false;
 
   constructor() { }
 
