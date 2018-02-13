@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition, keyframes, query, stagger } from '@angular/animations';
+import { TaskdataService } from '../taskdata.service'
 
 @Component({
   selector: 'app-home',
@@ -37,9 +38,10 @@ export class HomeComponent implements OnInit {
   //   'two'
   // ];
 
-  constructor() { }
+  constructor(private _taskdata: TaskdataService) { }
 
   ngOnInit() {
+    this._taskdata.tasks.subscribe(res => this.tasks = res);
   }
 
   addTask(){
@@ -54,6 +56,7 @@ export class HomeComponent implements OnInit {
 
   enable(){
     this.activeTask = false;
+
   }
 
 }
