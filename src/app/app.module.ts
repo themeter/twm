@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
     TaskEditComponent
   ],
   imports: [
+    HttpClientModule,
+    HttpModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
