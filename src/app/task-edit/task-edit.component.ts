@@ -28,16 +28,20 @@ import { trigger, style, animate, transition, keyframes, query, stagger } from '
   ]
 })
 export class TaskEditComponent implements OnInit {
-  fieldName = '';
   fields = [];
+  fieldName = '';
   fieldType = '';
+  inputvar = false;
+  outputvar = false;
+  arraytvar = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   addField(){
-    var temp = this.fieldType + ' : ' + this.fieldName;
+    var temp = this.fieldType + ' : ' + this.fieldName + ' in: ' + this.inputvar;
     this.fields.push(temp);
     this.fieldName = '';
   }

@@ -1,6 +1,4 @@
-<p>
-  task-edit works!
-</p>
+
 <!-- <p> {{bla}}</p> -->
 <div class="container color-dark">
 	<div class="col" routerLink ="">
@@ -14,27 +12,27 @@
 <div class="container color-light" [@fieldsx]="fields.length">
   <div class="col">
     <p class="life-container" *ngFor="let field of fields; let i = index" >
-      <span class="t-name">{{field}} </span><span class="t-delete" (click)="removeField(i)">   X</span>
+      <span class="t-name">{{field}} </span><span class="float-right" (click)="removeField(i)">   X</span>
     </p>
   </div>
 
   <div class="col">
 		<form>
-      <!-- <input type="Select" class="txt" name="type" placeholder="Select BD type..." [(ngModel)]="fieldType"> -->
-      <select name="type" [(ngModel)]="fieldType">
-       <option value="String">str</option>
-       <option value="Integer">int</option>
-       <option value="Document">doc</option>
-       <option value="boolean">bln</option>
+
+      <select name="type" class="sel" [(ngModel)]="fieldType"  value="str">
+         <option value="" selected disabled hidden>BD Type...</option>
+         <option value="String">str</option>
+         <option value="Integer">int</option>
+         <option value="Document">doc</option>
+         <option value="boolean">bln</option>
       </select>
       <input type="text" class="txt" name="item" placeholder="New BD field..." [(ngModel)]="fieldName">
+      <input type="checkbox" class="in" name="in" value="ip" [(ngModel)]="inputvar" > Input <br>
+      <input type="checkbox" class="op" name="op" value="op" [(ngModel)]="outputvar" > Output <br>
+      <input type="checkbox" class="ar" name="ar" value="ar" [(ngModel)]="arrayvar" > Array <br>
+      <!-- <input type="checkbox" class="in" name="in" value="ip"> Input <br> -->
+  		<input type="submit" class="btn" value="Add field" (click)="addField()">
 
-    <!-- <input type="text" class="txt" name="item" placeholder="Life goal..." [(ngModel)]="goalText"> -->
-		<!-- property 2-way binding. Requires FormBinding import -->
-		<!-- <br> <span> {{goalText}}</span> -->
-
-		<!-- property bingding -->
-		<input type="submit" class="btn" value="Add field" (click)="addField()">
 
     <!-- <input type="submit" class="btn" [value]="btnText" (click)="addItem()"> -->
 
