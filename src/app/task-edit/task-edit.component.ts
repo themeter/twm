@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition, keyframes, query, stagger } from '@angular/animations';
+import { TaskdataService } from '../taskdata.service';
+import { TaskType } from '../taskdata.service';
 
 @Component({
   selector: 'app-task-edit',
@@ -35,9 +37,12 @@ export class TaskEditComponent implements OnInit {
   outputvar = false;
   arrayvar = false;
 
-  constructor() { }
+  tasktypes = [];
+
+  constructor(private _taskdata: TaskdataService) { }
 
   ngOnInit() {
+    this._taskdata.tasktype.subscribe(res => this.tasktypes = res);
   }
 
   addField(){
