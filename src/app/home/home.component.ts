@@ -48,19 +48,10 @@ export class HomeComponent implements OnInit {
         this._taskdata.sharedChangeTask(this.tasktypes);
     }
 
-    addTask() {
-       
-
-        //UI model
-        // this.tasks.push(this.taskName);
-        // this.taskName = '';
-
+    addTask() {    
         this.tasktypes.push(new TaskType(this.taskName));
         this.taskName = '';
         this._taskdata.sharedChangeTask(this.tasktypes);
-        // this.tasks = this.tasktypes.tasks;
-        // this.taskName = '';
-
     }
     
     deployTask(task) {
