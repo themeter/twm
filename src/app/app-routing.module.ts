@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'taskEdit',
+    path: 'taskEdit/:id',
     component: TaskEditComponent
   }
 ];

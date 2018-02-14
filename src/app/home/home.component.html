@@ -4,7 +4,7 @@
 		<p>Tasks</p>
 	</div>
 	<div class="col">
-		<p>Business Data</p>
+		<!-- <p>Business Data</p> -->
 	</div>
 </div>
 
@@ -12,7 +12,7 @@
    <!-- [@tasks]="tasks.length"> -->
   <div class="col">
     <p class="life-container" *ngFor="let task of tasktypes; let i = index" (click)="enable()">
-      <span class="t-name">{{task.name}}</span><span class="t-edit" routerLink="taskEdit"> Edit </span><span class="t-delete" (click)="removeItem(i)">| Delete</span>
+      <span class="t-name">{{task.name}}</span><span class="t-edit" routerLink="taskEdit/{{task.name}}"> Edit </span><span class="float-right" (click)="removeItem(i)">X</span>
       <span class="t-delete" (click)="deployTask(task)">| Deploy</span>
     </p>
   </div>
