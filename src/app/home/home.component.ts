@@ -49,15 +49,7 @@ export class HomeComponent implements OnInit {
     }
 
     addTask() {
-        // var currTaskName = this.taskName;
-        //create task project
-        // this.http.put(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
-        // //create task
-        // this.http.post(`${window.location.pathname}rest/sag/task`, { taskTypeName: currTaskName, taskProjectName: "TaskProject" }).subscribe(res => console.log(res));
-        //
-        // }).catch((res) => {
-        //   console.log(res);
-        // });
+       
 
         //UI model
         // this.tasks.push(this.taskName);
@@ -70,7 +62,20 @@ export class HomeComponent implements OnInit {
         // this.taskName = '';
 
     }
-
+    
+    deployTask(task) {
+        console.log(task.name);
+        //create task project
+        this.http.put(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
+         //create task
+         this.http.post(`${window.location.pathname}rest/sag/task`, { taskTypeName: task.name, taskProjectName: "TaskProject" }).subscribe(res => console.log(res));
+        
+         }).catch((res) => {
+           console.log(res);
+         });
+        //TODO read and submit task data as well
+    }
+    
     removeItem(index) {
         // this.tasks.splice(index, 1);
         // // this._data.sharedChangeGoal(this.goals);
