@@ -2,7 +2,7 @@
 <!-- <p> {{bla}}</p> -->
 <div class="container color-dark">
 	<div class="col" routerLink ="">
-		<p>Task</p>
+		<p>Task: {{taskName}}</p>
 	</div>
 	<div class="col">
 		<p>Business Data</p>
@@ -32,6 +32,7 @@
       <input type="checkbox" class="ar" name="ar" value="ar" [(ngModel)]="arrayvar" > Array <br>
       <!-- <input type="checkbox" class="in" name="in" value="ip"> Input <br> -->
   		<input type="submit" class="btn" value="Add field" (click)="addField()">
+			<input type="submit" class="btn" value="Apply Business Data" (click)="applyBusinessData()">
 
 
     <!-- <input type="submit" class="btn" [value]="btnText" (click)="addItem()"> -->

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-
-class BusinessData {
+@Injectable()
+export class BDField {
   type: string;
   name: any;
   input: boolean;
@@ -22,14 +22,10 @@ class BusinessData {
 @Injectable()
 export class TaskType {
   name: string;
-  data: BusinessData;
+  data: BDField[];
 
   constructor(name: string){
     this.name = name;
-  }
-
-  setBusinessData(data: BusinessData){
-    this.data = data;
   }
 }
 
