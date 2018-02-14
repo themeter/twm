@@ -9,10 +9,10 @@
 	</div>
 </div>
 
-<div class="container color-light" [@fieldsx]="fields.length">
+<div class="container color-light" [@fieldsx]="taskFields.length">
   <div class="col">
-    <p class="life-container" *ngFor="let field of fields; let i = index" >
-      <span class="t-name">{{field}} </span><span class="float-right" (click)="removeField(i)">   X</span>
+    <p class="life-container" *ngFor="let field of taskFields; let i = index" >
+      <span class="t-name">{{field.name}} </span><span class="float-right" (click)="removeField(i)">   X</span>
     </p>
   </div>
 

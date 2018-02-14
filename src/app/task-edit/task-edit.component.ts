@@ -33,7 +33,6 @@ import { ActivatedRoute } from '@angular/router';
   ]
 })
 export class TaskEditComponent implements OnInit {
-  fields = [];
   fieldName = '';
   fieldType = '';
   inputvar = false;
@@ -59,23 +58,13 @@ export class TaskEditComponent implements OnInit {
     //push to bd array
     var field = new BDField( this.fieldType, this.fieldName, this.inputvar, this.outputvar, this.arrayvar);
     this.taskFields.push(field);
-    // push to ui array
-    var temp = field.type + ' : ' + field.name + ' in: ' + field.input;
-    this.fields.push(temp);
     this.fieldName = '';
 
   }
 
   removeField(index){
     //remove from bd
-    // this.taskFields.splice(this.taskFields.indexOf())
-    var name = this.fields[index];
-    this.taskFields = this.taskFields.filter(function(item){
-        return item.name !== name;
-    });
-    //remove from ui
-    this.fields.splice(index, 1);
-
+    this.taskFields.splice(index, 1);
   }
 
   getTaskForName(){
@@ -102,10 +91,6 @@ export class TaskEditComponent implements OnInit {
   loadBD(){
     if(this.task.data != undefined ){
         this.taskFields = this.task.data;
-        for( var val of this.taskFields){
-          var temp = val.type + ' : ' + val.name + ' in: ' + val.input;
-          this.fields.push(temp);
-        }
     }
   }
 
