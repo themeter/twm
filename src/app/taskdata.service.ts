@@ -19,7 +19,8 @@ class BusinessData {
   }
 }
 
-class TaskType {
+@Injectable()
+export class TaskType {
   name: string;
   data: BusinessData;
 
@@ -35,26 +36,32 @@ class TaskType {
 
 @Injectable()
 export class TaskdataService {
-  // private tasks = new BehaviorSubject<any>(['task1','task2']);
-  private tasktypes = new Array<TaskType>(); //: TaskType[];
+  // private tasks = new BehaviorSubject<any>([]);
+  // private tasktypes = new Array<TaskType>(); //: TaskType[];
+  private tasktypes = new BehaviorSubject<any>([]);
+  tasktype = this.tasktypes.asObservable();
 
   constructor() {
     // this.tasktypes = new Array<TaskType>();
   }
 
-  addTaskType(task: TaskType){
-    // var task = new TaskType(string);
-    this.tasktypes.push(task);
+  sharedChangeTask(t){
+    this.tasktypes.next(t);
   }
 
-  // getTaskForName(name: string){
-  //   return
+  // addTaskType(task: TaskType){
+  //   // var task = new TaskType(string);
+  //   this.tasktypes.push(task);
   // }
-
-
-  removeTaskType(task: TaskType) {
-    var index = this.tasktypes.indexOf(task);
-    this.tasktypes.splice(index, index);
-  }
+  //
+  // // getTaskForName(name: string){
+  // //   return
+  // // }
+  //
+  //
+  // removeTaskType(task: TaskType) {
+  //   var index = this.tasktypes.indexOf(task);
+  //   this.tasktypes.splice(index, index);
+  // }
 
 }

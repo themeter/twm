@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition, keyframes, query, stagger } from '@angular/animations';
-import { TaskdataService } from '../taskdata.service'
+import { TaskdataService } from '../taskdata.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TaskType } from '../taskdata.service';
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -34,41 +36,53 @@ export class HomeComponent implements OnInit {
     taskName = '';
     tasks = [];
     activeTask = true;
-    // tasks = [];
-    //   'one',
-    //   'two'
-    // ];
+
+    tasktypes = [];
+
 
     constructor(private _taskdata: TaskdataService, private http: HttpClient) { }
 
     ngOnInit() {
         // this._taskdata.tasks.subscribe(res => this.tasks = res);
+        this._taskdata.tasktype.subscribe(res => this.tasktypes = res);
+        this._taskdata.sharedChangeTask(this.tasktypes);
     }
 
     addTask() {
-        var currTaskName = this.taskName;
-
+        // var currTaskName = this.taskName;
         //create task project
-        this.http.put(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
-        //create task
-        this.http.post(`${window.location.pathname}rest/sag/task`, { taskTypeName: currTaskName, taskProjectName: "TaskProject" }).subscribe(res => console.log(res));
+        // this.http.put(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
+        // //create task
+        // this.http.post(`${window.location.pathname}rest/sag/task`, { taskTypeName: currTaskName, taskProjectName: "TaskProject" }).subscribe(res => console.log(res));
+        //
+        // }).catch((res) => {
+        //   console.log(res);
+        // });
 
-        }).catch((res) => {
-          console.log(res);
-        });
+        //UI model
+        // this.tasks.push(this.taskName);
+        // this.taskName = '';
 
-        this.tasks.push(this.taskName);
+        this.tasktypes.push(new TaskType(this.taskName));
         this.taskName = '';
+        this._taskdata.sharedChangeTask(this.tasktypes);
+        // this.tasks = this.tasktypes.tasks;
+        // this.taskName = '';
+
     }
 
     removeItem(index) {
-        this.tasks.splice(index, 1);
-        // this._data.sharedChangeGoal(this.goals);
+        // this.tasks.splice(index, 1);
+        // // this._data.sharedChangeGoal(this.goals);
+
+        this.tasktypes.splice(index, 1);
+        this._taskdata.sharedChangeTask(this.tasktypes);
+        // this._data.sharedChangeTask(this.tasktypes);
+
     }
 
     enable() {
         this.activeTask = false;
-
     }
 
 }

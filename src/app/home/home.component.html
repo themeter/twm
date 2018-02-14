@@ -8,11 +8,11 @@
 	</div>
 </div>
 
-<div class="container color-light" [@tasksx]="tasks.length">
+<div class="container color-light" [@tasksx]="tasktypes.length">
    <!-- [@tasks]="tasks.length"> -->
   <div class="col">
-    <p class="life-container" *ngFor="let task of tasks; let i = index" (click)="enable()">
-      <span class="t-name">{{task}} </span><span class="t-edit" routerLink="taskEdit"> Edit</span><span class="t-delete" (click)="removeItem(i)"> Delete</span>
+    <p class="life-container" *ngFor="let task of tasktypes; let i = index" (click)="enable()">
+      <span class="t-name">{{task.name}} </span><span class="t-edit" routerLink="taskEdit"> Edit</span><span class="t-delete" (click)="removeItem(i)"> Delete</span>
     </p>
   </div>
 
