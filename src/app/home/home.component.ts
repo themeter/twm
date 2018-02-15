@@ -37,20 +37,28 @@ export class HomeComponent implements OnInit {
     tasks = [];
     activeTask = true;
 
-    tasktypes = [];
+    tasktypes = new Array<TaskType>();
 
 
     constructor(private _taskdata: TaskdataService, private http: HttpClient) { }
 
     ngOnInit() {
-      this.http.get(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
+      this.fetchCurrentTasks();
+    }
+
+    private fetchCurrentTasks() {
+      this._taskdata.tasktype.subscribe(res => this.tasktypes = res);
+
+      if(this.tasktypes.length == 0) {
+          this.http.get(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
             for(let i in res) {
-              console.log(res[i]);
-                this.tasktypes.push(new TaskType(res[i]["taskTypeName"]));
+              var entry = new TaskType(res[i]["taskTypeName"]);
+              entry.taskTypeId = res[i]["taskTypeId"];
+              this.tasktypes.push(entry);
             }
           });
-        this._taskdata.tasktype.subscribe(res => this.tasktypes = res);
-        this._taskdata.sharedChangeTask(this.tasktypes);
+      }
+      this._taskdata.sharedChangeTask(this.tasktypes);
     }
 
     addTask() {
@@ -64,7 +72,7 @@ export class HomeComponent implements OnInit {
         //create task project
         this.http.put(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
          //create task
-         this.http.post(`${window.location.pathname}rest/sag/task`, { taskTypeName: task.name, taskProjectName: "TaskProject" }).subscribe(res => console.log(res));
+         this.http.post(`${window.location.pathname}rest/sag/task`, { taskTypeName: task.name, taskProjectName: "TaskProject" }).toPromise().then(res => task.taskTypeId = res["taskTypeId"]);
 
          }).catch((res) => {
            console.log(res);
@@ -75,7 +83,10 @@ export class HomeComponent implements OnInit {
     removeItem(index) {
         // this.tasks.splice(index, 1);
         // // this._data.sharedChangeGoal(this.goals);
-
+        let deletedItem = this.tasktypes[index];
+        if(deletedItem.taskTypeId != null) {
+        this.http.delete(`${window.location.pathname}rest/sag/task/TaskProject/` + deletedItem.taskTypeId).toPromise();
+        }
         this.tasktypes.splice(index, 1);
         this._taskdata.sharedChangeTask(this.tasktypes);
         // this._data.sharedChangeTask(this.tasktypes);

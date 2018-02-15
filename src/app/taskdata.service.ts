@@ -22,6 +22,7 @@ export class BDField {
 @Injectable()
 export class TaskType {
   name: string;
+  taskTypeId: string;
   data: BDField[];
 
   constructor(name: string){
