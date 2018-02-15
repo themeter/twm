@@ -42,11 +42,17 @@ export class TaskEditComponent implements OnInit {
   tasktypes = [];
   taskName = '';
   taskFields = [];
-  task;
+  task = null;
 
   constructor(private _taskdata: TaskdataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // this.taskFields = [];
+    // this.tasktypes = [];
+    // this.task = null;
+
+    // this.task.data = [];
+    // console.log(this.tasktypes);
     this._taskdata.tasktype.subscribe(res => this.tasktypes = res);
     // this._taskdata.sharedChangeTask(this.tasktypes);
     this.route.params.subscribe(res => this.taskName = res.id);
@@ -59,7 +65,7 @@ export class TaskEditComponent implements OnInit {
     var field = new BDField( this.fieldType, this.fieldName, this.inputvar, this.outputvar, this.arrayvar);
     this.taskFields.push(field);
     this.fieldName = '';
-
+    // console.log(this.task.data);
   }
 
   removeField(index){
@@ -76,22 +82,26 @@ export class TaskEditComponent implements OnInit {
       }
     return null;
   }
-
-  applyBusinessData(){
-    //apply bd array to task
-    this.task.data = this.taskFields;
-    //replace task in temp list
-    this.tasktypes.splice(this.tasktypes.indexOf(this.task, 1));
-    this.tasktypes.push(this.task);
-    //update shared list of tasks
-    this._taskdata.sharedChangeTask(this.tasktypes);
-
-  }
+  //
+  // applyBusinessData(){
+  //   //apply bd array to task
+  //    this.task.data = this.taskFields.concat([]);
+  //
+  //   //replace task in temp list
+  //   // this.tasktypes.splice(this.tasktypes.indexOf(this.task), 1);
+  //   // this.tasktypes.push(this.task);
+  //
+  //   //update shared list of tasks
+  //   this._taskdata.sharedChangeTask(this.tasktypes);
+  //
+  // }
 
   loadBD(){
     if(this.task.data != undefined ){
+        console.log(this.task.data);
         this.taskFields = this.task.data;
     }
+    this.task.data = this.taskFields;
   }
 
 }
