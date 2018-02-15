@@ -4,16 +4,17 @@
 
 }
 
-.color-dark {
+.title-bar {
   background: #57b3f1;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .col {
   padding: .4em 1.3em;
 }
 
-.color-light {
+.table {
   background: skyblue;
 }
 
@@ -23,6 +24,7 @@ input.txt {
   padding: 1em;
   width: 20%;
   margin-bottom: 2em;
+  margin-top: 1em;
 }
 
 input.btn {
@@ -36,34 +38,48 @@ input.btn {
 }
 
 
-.life-container {
+.task-container {
   background: #3FA0E1;
   padding: .5em;
   // font-weight: bold;
-  cursor: pointer;
+  // cursor: pointer;
 }
 span.t-name {
 margin-right: 20px;
-font-size: large;
+font-size: 20px;
 width: 70%;
 }
 
 span.t-delete {
+  font-size: 12px;
+  cursor: pointer;
   // width: 10%;
   // height: 100%;
   //
-  float: right;
+  // float: right;
   // background-color: red;
 }
 
 span.t-edit {
+  font-size: 12px;
+  cursor: pointer;
   // background-color: gray;
   // // float: right;
   // width: 10%;
 }
 
 span.t-deploy {
+  font-size: 12px;
+  cursor: pointer;
   // background-color: blue;
   // // float: right;
   // width: 10%;
+}
+
+span.t-opts {
+  float: right;
+}
+
+input:disabled {
+    background: #dddddd;
 }

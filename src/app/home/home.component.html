@@ -1,45 +1,34 @@
 <!-- <p> {{bla}}</p> -->
-<div class="container color-dark">
+<div class="container title-bar">
+
 	<div class="col">
 		<p>Tasks</p>
 	</div>
+
 	<div class="col">
 		<!-- <p>Business Data</p> -->
 	</div>
+
 </div>
 
-<div class="container color-light" [@tasksx]="tasktypes.length">
-   <!-- [@tasks]="tasks.length"> -->
-  <div class="col">
-    <p class="life-container" *ngFor="let task of tasktypes; let i = index" (click)="enable()">
+<div class="container table" [@tasksx]="tasktypes.length">
+
+	<div class="col">
+    <p class="task-container" *ngFor="let task of tasktypes; let i = index" (click)="enable()">
       <span class="t-name">{{task.name}}</span>
-			<span class="t-edit" routerLink="taskEdit/{{task.name}}"> Edit </span>
-			<span class="t-delete" (click)="removeItem(i)">X</span>
-      <span class="t-deploy" (click)="deployTask(task)">| Deploy</span>
+			<span class="t-opts">
+				<span class="t-edit" routerLink="taskEdit/{{task.name}}"> Edit </span>
+				<span class="t-deploy" (click)="deployTask(task)">| Deploy</span>
+				<span class="t-delete" (click)="removeItem(i)">| X</span>
+			</span>
     </p>
   </div>
 
   <div class="col">
 		<form>
       <input type="text" class="txt" name="item" placeholder="New Task..." [(ngModel)]="taskName">
-    <!-- <input type="text" class="txt" name="item" placeholder="Life goal..." [(ngModel)]="goalText"> -->
-		<!-- property 2-way binding. Requires FormBinding import -->
-		<!-- <br> <span> {{goalText}}</span> -->
-
-		<!-- property bingding -->
-		<input type="submit" class="btn" [value]="bla" (click)="addTask()" ng-disabled="!taskName">
-
-    <!-- <input type="submit" class="btn" [value]="btnText" (click)="addItem()"> -->
-
-		<!-- interpelation -->
-		<!-- <input type="submit" class="btn" value="{{btnText}}"> -->
-
-	</form>
+  		<input type="submit" class="btn" [value]="bla" (click)="addTask()" [disabled]="!taskName">
+		</form>
 	</div>
-	<!-- <div class="col">
-		<p class="life-container" *ngFor="let goal of goals">
-			{{goal}}
-		</p>
-	</div> -->
 
 </div>
