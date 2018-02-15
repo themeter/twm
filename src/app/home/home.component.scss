@@ -28,7 +28,7 @@ input.txt {
 }
 
 input.btn {
-  border: 0;
+  border: 3;
   // display: block;
   padding: 1em 3em;
   background: #57b3f1;//#A5F883;
@@ -81,5 +81,6 @@ span.t-opts {
 }
 
 input:disabled {
-    background: #dddddd;
+    background: gray;//#dddddd;
+    border: 0;
 }

@@ -1,9 +1,14 @@
 
 <!-- <p> {{bla}}</p> -->
 <div class="container color-dark">
-	<div class="col" routerLink ="">
-		<p>Tasks > {{taskName}}</p>
+	<div class="col">
+		<p><span class="n-tasks" routerLink ="" >Tasks > </span>
+			<span>{{taskName}}</span>
+		</p>
 	</div>
+	<!-- <div class="col" routerLink ="">
+		<p>{{taskName}}</p>
+	</div> -->
 	<div class="col">
 		<p>Business Data</p>
 	</div>
@@ -12,7 +17,7 @@
 <div class="container color-light" [@fieldsx]="taskFields.length">
   <div class="col">
     <p class="life-container" *ngFor="let field of taskFields; let i = index" >
-      <span class="t-name">{{field.name}} </span><span class="float-right" (click)="removeField(i)">   X</span>
+      <span class="t-name">{{field.name}} </span><span class="t-delete" (click)="removeField(i)">   X</span>
     </p>
   </div>
 
@@ -31,8 +36,8 @@
       <input type="checkbox" class="op" name="op" value="op" [(ngModel)]="outputvar" > Output <br>
       <input type="checkbox" class="ar" name="ar" value="ar" [(ngModel)]="arrayvar" > Array <br>
       <!-- <input type="checkbox" class="in" name="in" value="ip"> Input <br> -->
-  		<input type="submit" class="btn" value="Add field" (click)="addField()">
-			<input type="submit" class="btn" value="Apply Business Data" (click)="applyBusinessData()">
+  		<input type="submit" class="btn" value="Add field" (click)="addField()" [disabled]="!(fieldName && fieldType)">
+			<input type="submit" class="btn" value="Apply Business Data" (click)="applyBusinessData()" [disabled]="!taskFields.length">
 
 
     <!-- <input type="submit" class="btn" [value]="btnText" (click)="addItem()"> -->

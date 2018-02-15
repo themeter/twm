@@ -11,7 +11,7 @@
 
 .col {
   padding: .4em 1.3em;
-  cursor: pointer;
+  // cursor: pointer;
 }
 
 .color-light {
@@ -27,13 +27,14 @@ input.txt {
 }
 
 input.btn {
-  border: 0;
+  border: 3;
   // display: block;
   padding: 1em 3em;
   background: #57b3f1;//#A5F883;
   color: #003A61;
   margin-bottom: 1em;
   cursor: pointer;
+  color: white;
 }
 
 
@@ -41,11 +42,7 @@ input.btn {
   background: #3FA0E1;
   padding: .5em;
   // font-weight: bold;
-  cursor: pointer;
-}
-
-.t-edit {
-  backgroung: green;
+  // cursor: pointer;
 }
 
 select.sel {
@@ -60,6 +57,7 @@ input.in {
   padding: 1em;
   width: 5%;
   margin-bottom: 2em;
+  transform: scale(1.5, 1.5);
 }
 
 input.op {
@@ -67,15 +65,36 @@ input.op {
   padding: 1em;
   width: 5%;
   margin-bottom: 2em;
+  transform: scale(1.5, 1.5);
 }
 
 input.ar {
-  border: 0;
+  border: 3;
   padding: 1em;
   width: 5%;
   margin-bottom: 2em;
+  // size: 120%;
+  // border: 10px solid grey;
+  // background-size: 200%;
+  transform: scale(1.5, 1.5);
 }
 
-.float-right {
+span.n-tasks {
+  cursor: pointer;
+}
+
+span.t-delete {
   float: right;
+  cursor: pointer;
+  font-size: 12px;
+}
+span.t-name {
+  margin-right: 20px;
+  font-size: 20px;
+  width: 70%;
+}
+
+input:disabled {
+    background: gray;//#dddddd;
+    border: 0;
 }
