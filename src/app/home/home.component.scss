@@ -1,10 +1,12 @@
 .container {
   display: grid;
   grid-template-columns: 30% auto;
+
 }
 
 .color-dark {
   background: #57b3f1;
+  font-weight: bold;
 }
 
 .col {
@@ -27,8 +29,8 @@ input.btn {
   border: 0;
   // display: block;
   padding: 1em 3em;
-  background: #A5F883;
-  color: #003A61;
+  background: #57b3f1;//#A5F883;
+  color: white;//#003A61;
   margin-bottom: 1em;
   cursor: pointer;
 }
@@ -37,15 +39,31 @@ input.btn {
 .life-container {
   background: #3FA0E1;
   padding: .5em;
-  font-weight: bold;
+  // font-weight: bold;
   cursor: pointer;
 }
-.t-name {
+span.t-name {
 margin-right: 20px;
 font-size: large;
+width: 70%;
 }
 
-
-.float-right {
+span.t-delete {
+  // width: 10%;
+  // height: 100%;
+  //
   float: right;
+  // background-color: red;
+}
+
+span.t-edit {
+  // background-color: gray;
+  // // float: right;
+  // width: 10%;
+}
+
+span.t-deploy {
+  // background-color: blue;
+  // // float: right;
+  // width: 10%;
 }
