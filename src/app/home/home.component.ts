@@ -43,30 +43,35 @@ export class HomeComponent implements OnInit {
     constructor(private _taskdata: TaskdataService, private http: HttpClient) { }
 
     ngOnInit() {
-        // this._taskdata.tasks.subscribe(res => this.tasks = res);
+      this.http.get(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
+            for(let i in res) {
+              console.log(res[i]);
+                this.tasktypes.push(new TaskType(res[i]["taskTypeName"]));
+            }
+          });
         this._taskdata.tasktype.subscribe(res => this.tasktypes = res);
         this._taskdata.sharedChangeTask(this.tasktypes);
     }
 
-    addTask() {    
+    addTask() {
         this.tasktypes.push(new TaskType(this.taskName));
         this.taskName = '';
         this._taskdata.sharedChangeTask(this.tasktypes);
     }
-    
+
     deployTask(task) {
         console.log(task.name);
         //create task project
         this.http.put(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {
          //create task
          this.http.post(`${window.location.pathname}rest/sag/task`, { taskTypeName: task.name, taskProjectName: "TaskProject" }).subscribe(res => console.log(res));
-        
+
          }).catch((res) => {
            console.log(res);
          });
         //TODO read and submit task data as well
     }
-    
+
     removeItem(index) {
         // this.tasks.splice(index, 1);
         // // this._data.sharedChangeGoal(this.goals);
