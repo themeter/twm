@@ -17,7 +17,9 @@
 <div class="container color-light" [@fieldsx]="taskFields.length">
   <div class="col">
     <p class="life-container" *ngFor="let field of taskFields; let i = index" >
-      <span class="t-name">{{field.name}} </span><span class="t-delete" (click)="removeField(i)">   X</span>
+      <span class="t-type">{{field.type}} : </span>
+			<span class="t-name">{{field.name}} </span>
+			<span class="t-delete" (click)="removeField(i)">   X</span>
     </p>
   </div>
 

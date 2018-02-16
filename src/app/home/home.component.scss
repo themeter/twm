@@ -5,7 +5,7 @@
 }
 
 .title-bar {
-  background: #57b3f1;
+  background: #006F97;//#57b3f1;
   font-weight: bold;
   font-size: 20px;
 }
@@ -15,7 +15,7 @@
 }
 
 .table {
-  background: skyblue;
+  background: #8BCFED;//skyblue;
 }
 
 
@@ -31,7 +31,7 @@ input.btn {
   border: 3;
   // display: block;
   padding: 1em 3em;
-  background: #57b3f1;//#A5F883;
+  background: #04B2E0;//#57b3f1;//#A5F883;
   color: white;//#003A61;
   margin-bottom: 1em;
   cursor: pointer;
@@ -39,7 +39,7 @@ input.btn {
 
 
 .task-container {
-  background: #3FA0E1;
+  background: #333333;//#3FA0E1;
   padding: .5em;
   // font-weight: bold;
   // cursor: pointer;
@@ -81,6 +81,6 @@ span.t-opts {
 }
 
 input:disabled {
-    background: gray;//#dddddd;
+    background: #989898;//gray;//#dddddd;
     border: 0;
 }

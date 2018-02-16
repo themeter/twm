@@ -4,7 +4,7 @@
 }
 
 .color-dark {
-  background: #57b3f1;
+  background: #006F97;//#57b3f1;
   font-weight: bold;
   font-size: 20px;
 }
@@ -15,22 +15,23 @@
 }
 
 .color-light {
-  background: skyblue;
+  background: #8BCFED;//skyblue;
 }
 
 
 input.txt {
   border: 0;
   padding: 1em;
-  width: 90%;
+  width: 40%;
   margin-bottom: 2em;
+  display: block;
 }
 
 input.btn {
   border: 3;
   // display: block;
   padding: 1em 3em;
-  background: #57b3f1;//#A5F883;
+  background: #04B2E0;//#57b3f1;//#A5F883;
   color: #003A61;
   margin-bottom: 1em;
   cursor: pointer;
@@ -39,7 +40,7 @@ input.btn {
 
 
 .life-container {
-  background: #3FA0E1;
+  background: #333333;//#3FA0E1;
   padding: .5em;
   // font-weight: bold;
   // cursor: pointer;
@@ -48,8 +49,9 @@ input.btn {
 select.sel {
   border: 0;
   padding: 1em;
-  width: 95%;
+  width: 43%;
   margin-bottom: 2em;
+  display: block;
 }
 
 input.in {
@@ -91,10 +93,17 @@ span.t-delete {
 span.t-name {
   margin-right: 20px;
   font-size: 20px;
-  width: 70%;
+  width: 40%;
 }
 
+span.t-type {
+  margin-right: 20px;
+  font-size: 20px;
+  width: 30%;
+}
+
+
 input:disabled {
-    background: gray;//#dddddd;
+    background: #989898;//gray;//#dddddd;
     border: 0;
 }
