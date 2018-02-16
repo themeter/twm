@@ -15,10 +15,11 @@
 
 	<div class="col">
     <p class="task-container" *ngFor="let task of tasktypes; let i = index" (click)="enable()">
-      <span class="t-name">{{task.name}}</span>
+      <span class="t-name" routerLink="taskEdit/{{task.name}}">{{task.name}}</span>
 			<span class="t-opts">
-				<span class="t-edit" routerLink="taskEdit/{{task.name}}"> Edit </span>
-				<span class="t-deploy" (click)="deployTask(task)">| Deploy</span>
+				<!-- <span class="t-edit" routerLink="taskEdit/{{task.name}}"> Edit </span> -->
+				<span class="t-deploy" [hidden]="task.taskTypeId != null" (click)="deployTask(task)">Deploy</span>
+				<span class="t-deploy" [hidden]="task.taskTypeId == undefined" (click)="deployTask(task)">Re-deploy</span>
 				<span class="t-delete" (click)="removeItem(i)">| X</span>
 			</span>
     </p>

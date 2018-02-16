@@ -68,6 +68,9 @@ export class HomeComponent implements OnInit {
     }
 
     deployTask(task) {
+      if(task.taskTypeId != null) {
+        return; //TODO remove this and instead update task Data if taskTypeID != null
+      }
         console.log(task.name);
         //create task project
         this.http.put(`${window.location.pathname}rest/sag/task/project/TaskProject`, {}).toPromise().then((res) => {

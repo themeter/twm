@@ -27,13 +27,12 @@
 		<form>
 
       <select name="type" class="sel" [(ngModel)]="fieldType" >
-         <option value="" selected disabled hidden>BD Type...</option>
-         <option value="String">String</option>
+         <option value="String" selected>String</option>
          <option value="Integer">Integer</option>
          <option value="Document">Document</option>
          <option value="boolean">Boolean</option>
       </select>
-      <input type="text" class="txt" name="item" placeholder="New BD field..." [(ngModel)]="fieldName">
+      <input type="text" class="txt" name="item" placeholder="Enter value..." [(ngModel)]="fieldName">
       <input type="checkbox" class="in" name="in" value="ip" [(ngModel)]="inputvar" > Input <br>
       <input type="checkbox" class="op" name="op" value="op" [(ngModel)]="outputvar" > Output <br>
       <input type="checkbox" class="ar" name="ar" value="ar" [(ngModel)]="arrayvar" > Array <br>

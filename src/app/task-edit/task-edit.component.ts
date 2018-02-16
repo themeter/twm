@@ -34,7 +34,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TaskEditComponent implements OnInit {
   fieldName = '';
-  fieldType = '';
+  fieldType = 'String';
   inputvar = false;
   outputvar = false;
   arrayvar = false;
